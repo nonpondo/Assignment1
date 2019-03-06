@@ -15,17 +15,22 @@ import javafx.scene.image.ImageView;
 public class Q2 extends MainCon {
 
   public static GridPane getpane2(){
-
+    //create gridpane
     GridPane pane = new GridPane();
     pane.setAlignment(Pos.CENTER);
     pane.setHgap(5.5);
     pane.setVgap(5.5);
+
+    //create textfields
     TextField invamount = new TextField();
     TextField yrs = new TextField();
     TextField annintrate = new TextField();
     TextField phone = new TextField();
+    //create button
     Button btnCalc = new Button("Calculate");
+    //function value text box
     Text fval = new Text();
+    //layout panels
     pane.add(new Text("Investment Amount "),0,0);
     pane.add(new Text("Years "),0,1);
     pane.add(new Text("Annual Interest Rate "),0,2);
@@ -38,7 +43,7 @@ public class Q2 extends MainCon {
 
 
 
-
+    //button action calculates formula
     btnCalc.setOnAction(e -> {
       double fvald = Float.parseFloat( invamount.getText() ) * Math.pow( (1.0+Float.parseFloat(annintrate.getText())/1200) , ( Float.parseFloat( yrs.getText() )*12.0));
       fval.setText(String.format("$%.2f",fvald));
